@@ -1,0 +1,1 @@
+Pequeño proyecto, para aprender o reafirmar nuevo conocimiento para Android
