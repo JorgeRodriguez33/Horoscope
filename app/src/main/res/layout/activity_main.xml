@@ -7,13 +7,35 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.MainActivity">
 
-     <!--    ******** TIPs para ¡¡¡FragmentContainerView!!! *****
-     1)app:defaultNavhost="true" dice que este es el contenedor principal de fragment
-     de la vista, porque pueden haber varios "FragmentContainerView"
-     2) android:name="androidx.navigation.fragment.NavHostFragment" para que el "FragmentContainerView" funcione
-     3)  android:id="@+id/fragmentContainerView" para que el "FragmentContainerView" funcione
-     4) app:navGraph="@navigation/main_graph" -> el grafo que quiero que se cargue, en este caso el main_graph, el unico que he definido para este proyecto que contiene la navegacion de las pantallas
+<!--     ******** definiendo la ¡¡¡toolbar!!! *****
+     la altura de la toolbar se define como "?attr/actionBarSize" este es el tamaño de toolbar exacto (es un valor ya predefinido para su uso)
      -->
+   <FrameLayout
+       android:id="@+id/toolbar"
+       android:layout_width="0dp"
+       android:layout_height="?attr/actionBarSize"
+       android:background="@color/primaryDark"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           style="@style/Title"
+           android:layout_gravity="center"
+           android:text="@string/app_name"/>
+
+   </FrameLayout>
+
+
+    <!--    ******** TIPs para ¡¡¡FragmentContainerView!!! *****
+    1)app:defaultNavhost="true" dice que este es el contenedor principal de fragment
+    de la vista, porque pueden haber varios "FragmentContainerView"
+    2) android:name="androidx.navigation.fragment.NavHostFragment" para que el "FragmentContainerView" funcione
+    3)  android:id="@+id/fragmentContainerView" para que el "FragmentContainerView" funcione
+    4) app:navGraph="@navigation/main_graph" -> el grafo que quiero que se cargue, en este caso el main_graph, el unico que he definido para este proyecto que contiene la navegacion de las pantallas
+    -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:layout_width="0dp"
@@ -23,7 +45,7 @@
         app:navGraph="@navigation/main_graph"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <!--  TIP  BottomNavigationView
