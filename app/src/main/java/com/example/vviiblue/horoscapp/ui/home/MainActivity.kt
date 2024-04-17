@@ -10,7 +10,10 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.vviiblue.horoscapp.R
 import com.example.vviiblue.horoscapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+/** Para que esta classe reciba cosas inyectadas, basta poner el annotation @AndroidEntryPoint*/
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController /** NavController es la clase padre que gestiona el tema de la navegacion a travez de "NavigationComponent" */
