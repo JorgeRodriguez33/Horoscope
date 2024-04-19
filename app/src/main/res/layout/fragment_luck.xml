@@ -74,7 +74,7 @@
             app:layout_constraintHeight_percent="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:background="@color/red" />
+             />
 
         <!-- Tip- Normalmente para los android:layout_margin se usan
             margenes de 8dp,16dp,24dp,32dp,42dp.... -->
