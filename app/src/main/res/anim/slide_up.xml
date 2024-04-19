@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- el "<set" no es necesario, solo es obligatiorio si se le ponen mas de un cambio diferente-->
+
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--  android:fromYDelta="100%" -> quiero que el movimiento comience desde el eje Y (desde abajo del todo) en la grafica seria contra el eje x ...-->
+<!--  android:toYDelta="0" -> quiero que se mueva hasta el medio, osea hasta donde se cruza el eje x con el eje y -->
+    <translate
+        android:duration="400"
+        android:fromYDelta="100%"
+        android:toYDelta="0"/>
+</set>

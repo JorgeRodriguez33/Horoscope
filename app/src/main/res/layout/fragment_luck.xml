@@ -1,11 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
     tools:context=".ui.luck.LuckFragment">
 
+    <!-- vista que tiene la ruleta, es lo primero que se muestra  -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewPreview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ivRoulette"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:layout_marginBottom="-250dp"
+            android:src="@drawable/ruleta"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Importante, cuando la imagen escalaba por medio de
+             la animacion, quedaba sobre la ruleta
+             por eso se uso "android:scaleType="fitStart" "
+             de esta manera hago que se ajuste siempre a donde esta
+             en este momento, fit "start" lo ajusta siempre a la
+              esquina izquierda y de ahi que crezca lo que quiera-->
+        <ImageView
+            android:id="@+id/ivReverse"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitStart"
+            android:src="@drawable/card_back_small"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Vista que muestra la prediccion-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewPrediction"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <!-- La altura la defino como
+             app:layout_constraintHeight_percent="0.6"
+             lo que es lo mismo, un 60% de la pantalla
+             De esta manera, no importa la pantalla, la imagen siempre
+             va a ocupar un 60% de la pantalla-->
+        <ImageView
+            android:id="@+id/ivLuckyCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/red" />
+
+        <!-- Tip- Normalmente para los android:layout_margin se usan
+            margenes de 8dp,16dp,24dp,32dp,42dp.... -->
+        <TextView
+            android:id="@+id/tvLucky"
+            style="@style/Body"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="32dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@id/tvShare"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivLuckyCard"
+            tools:text="fdshjkl asdjlaskd" />
+
+        <!--  se define el textView de compartir-->
+        <TextView
+            android:id="@+id/tvShare"
+            style="@style/Body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@string/share"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLucky" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
