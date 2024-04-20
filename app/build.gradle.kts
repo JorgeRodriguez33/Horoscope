@@ -103,6 +103,9 @@ android {
 dependencies {
 
     val navVersion = "2.7.1"
+    val daggerHiltVersion = "2.48"
+    val retrofitVersion = "2.9.0"
+    val cameraVersion = "1.2.3"
 
     //NavComponent
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
@@ -113,16 +116,23 @@ dependencies {
     // id("kotlin-kapt")
     // id("com.google.dagger.hilt.android")
     // en el plugin de este build.gradle
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.48")
+    implementation("com.google.dagger:hilt-android:$daggerHiltVersion")
+    kapt("com.google.dagger:hilt-compiler:$daggerHiltVersion")
 
     //Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation ("com.squareup.retrofit2:converter-gson:$retrofitVersion")
 
     //Interceptor habitual, ejemplo este que muestra las respuestas de las peticiones a internet que muestra los códigos de error, los errores, (tambien es posible crear Interceptors de forma manual)
     //El interceptor se mete en el Modulo que se haya definido (para una clean arquitecture) (NetworkModule)
     implementation ("com.squareup.okhttp3:logging-interceptor:4.3.1")
+
+    //Camera X
+    implementation ("androidx.camera:camera-core:${cameraVersion}")
+    implementation ("androidx.camera:camera-camera2:${cameraVersion}")
+    implementation ("androidx.camera:camera-lifecycle:${cameraVersion}")
+    implementation ("androidx.camera:camera-view:${cameraVersion}")
+    implementation ("androidx.camera:camera-extensions:${cameraVersion}")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
