@@ -1,12 +1,17 @@
 package com.example.vviiblue.horoscapp.ui.palmistry
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.Preview
+import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import com.example.vviiblue.horoscapp.R
 import com.example.vviiblue.horoscapp.databinding.FragmentPalmistryBinding
@@ -53,13 +58,44 @@ class PalmistryFragment : Fragment() {
             //Tiene permisos aceptados
             startCamera()
         } else {
-            /** Para pedir permisos en los Fragment se hace atravez de un luncher  */
+            /** Para pedir permisos en los Fragment se hace atravez de un luncher
+             * se le pide el permiso de camara (podria ser cualquier otro permiso) */
             requestPermissionLauncher.launch(CAMERA_PERMISSION)
         }
     }
 
     private fun startCamera() {
-        TODO("Not yet implemented")
+      val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
+
+        // al gestor de la camara creado "cameraProviderFuture", se le agrega un listener
+        cameraProviderFuture.addListener({
+            /** Se obtiene el cameraProviderFuture y se le asocia al ciclo de vida del fragment */
+            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+
+            /** "also" es una funcion que permite hacer mas acciones sobre algo, en este caso sobre sobre el builder de Preview */
+            val preview = Preview.Builder()
+                .build()
+                .also {
+                    /** para cargar la preview en la vista, se debe acceder asi "it.setSurfaceProvider(binding.viewFinder.surfaceProvider)"
+                     * it es el Preview que estoy creando*/
+                    it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
+                }
+
+            /** se selecciona que camara se quiere usar por defecto, en este caso la camara de atras */
+            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+
+            try{
+                // unbindAll = que la cameraProvider que tengo se desenganche de cualquier cosa con la que se haya hecho bind ( por si se ha llamado muchas veces)
+                cameraProvider.unbindAll()
+
+                // ahora engancho el cameraProvider al ciclo de vida
+                cameraProvider.bindToLifecycle(this, cameraSelector, preview)
+            }catch (e:Exception){
+                Log.e("Error", "Algo fallo ${e.message}")
+            }
+        }, ContextCompat.getMainExecutor(requireContext()))
+
+
     }
 
     /** Operacion para gestionar los permisos, si el usuario ya acepto por ejemplo el permiso de la camara, no se lo voy a volver a pedir */
