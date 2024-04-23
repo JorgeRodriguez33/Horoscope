@@ -1,0 +1,22 @@
+cuando selecciono entre los diferentes item del bottomNavigation, los colores cambian 
+para hacer lass cosas bien y que los colores que cambian sean los correcctos se utilizan los "Selectores"
+los "SELECTORES" sirven para cuando hay componentes que tienen varios estados
+
+para este caso en res, voy a crear un directorio llamado "color" y dentro se va a crear el selector (colorResourceFile),
+ un "selector" es un xml que tiene distintos "colores" dependiendo de los "estados"
+en este caso se llamara "bottom_nav_selector"
+
+y dentro de los posibles estados esta "state_checked" que es seleccionado y con un color definido
+ejemplo :
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:color="@color/secondary" android:state_checked="true"/>
+    <item android:color="@color/accent"/>
+</selector>
+
+literalmente, cuando el item este seleccionado se le va a pintar de color "@color/secondary" sino, en caso de cualquiera de los otros estados 
+se le asignara el color por defecto "@color/accent"
+
+entonces al componente "BottomNavigationView" definido en el xml del MainActivity se le define el color de los icono con el color "bottom_nav_selector", que no es un color sino el selector que representa dos colores
+
+
+

@@ -12,6 +12,12 @@ import com.example.vviiblue.horoscapp.R
 import com.example.vviiblue.horoscapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+/**         Test de ui al Main Activity
+ * Por norma general, para testear ui, debe estar en los mismos directorios en el directorio "androidTest"
+ * entonces para no estar recreando todos los directorios para hacer el test de "MainActivity"
+ * lo mejor es posicionar el mouse sobre  la operacion "MainActivity" y precionar CTRL+SHIFT+T
+ * por ultimo dar en crear test, crear*/
+
 /** Para que esta classe reciba cosas inyectadas, basta poner el annotation @AndroidEntryPoint*/
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

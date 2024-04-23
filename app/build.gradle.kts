@@ -17,7 +17,12 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        /** testInstrumentationRunner : es el que se encarga de lanzar los test,
+         * este sirve cuando NO SE USA DaggerHilt, cuando los test de ui son mas sencillos,
+         * pero cuando los test son mas complejos o se usa DaggerHilt, se debe crear un "CustomTestRunner" y
+         * asociar el lanzador con la clase creada*/
+       // testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.vviiblue.horoscapp.CustomTestRunner"
     }
 
     /** buildTypes,
@@ -146,19 +151,21 @@ dependencies {
     /** Importante, las librerias para hacer testing se dividen en "testImplementation" y "androidTestImplementation"
      *- Las librerias "testImplementation" son librrias que solo van a funcionario en el directorio "test"  (para pruebas unitarias que tengan que ver kotline, o operaciones de capa domain)
      *- Las librerias "androidTestImplementation" son librerias que solo van a funcionar en el directorio "androidTest" (para pruebas que tengan que ver con android y ui en general)*/
-    //UnitTesting
+    //**UnitTesting
     testImplementation(libs.junit)
     testImplementation ("io.kotlintest:kotlintest-runner-junit5:3.4.2")
     testImplementation ("io.mockk:mockk:1.12.3")
 
-    //UITesting
+    //**UITesting
     androidTestImplementation(libs.androidx.junit)
+       //Es util para automatizar los test de ui
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation("androidx.test.espresso:espresso-contrib:3.5.1")
     androidTestImplementation ("androidx.test.espresso:espresso-intents:3.4.0")
+    //porque para los test se van a necesitar inyectar cosas
     androidTestImplementation ("com.google.dagger:hilt-android-testing:2.48")
-    androidTestImplementation ("androidx.fragment:fragment-testing:1.6.1")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.48")
+    androidTestImplementation ("androidx.fragment:fragment-testing:1.6.1")
 
 
     /** ********************** *************** IMPORTANTE!!! ************ ************************* ***************/

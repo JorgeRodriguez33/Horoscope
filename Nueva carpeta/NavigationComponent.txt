@@ -1,0 +1,20 @@
+NavigationComponent, es una libreria que simplifica y gestion la navegacion entre fragments o activity, 
+es una forma de cargar los fragments sin necesidad de definir las transactions para ir a un fragment o otro
+es la hoja de ruta de lo que hay que cargar, es un mapa
+
+se crea un directorio llamado "navigation" en el "res"!!!!
+donde se especificara el grafo con las conexiones
+por ejemplo main_graph, el grafo de navegacion principal
+
+en el xml del mainactivity quien contenddra todo, se define el navigationComponent por medio de un componente llamado "androidx.fragment.app.FragmentContainerView"
+
+***********
+teniendo definido lo anterior
+para navegar entre los fragments, hace falta agregar al xml del mainactivity un "com.google.android.material.bottomnavigation.BottomNavigationView"
+
+para conectar "com.google.android.material.bottomnavigation.BottomNavigationView" con "androidx.fragment.app.FragmentContainerView"
+hace falta un menu... , esto agrego un ddirectorio en "res" llamado "menu"
+en menu agrego un "menuResourseFile" llamado "bottom_menu"
+dentro defino los "items" que seran las diversas pantallas/fragments
+
+

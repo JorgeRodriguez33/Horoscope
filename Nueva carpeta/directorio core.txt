@@ -1,0 +1,6 @@
+puede haber un directorio core por cada capa
+en data 
+El directorio "core" tendra todas las cosas genericas que se puedan usar en la capa de "data"
+
+en ui
+El directorio "core" ´podria tener por ejemplo las "funciones de extencion" que se puedan usar en la capa de "ui" o un boton especial va a ir en "core" porque todos los activitys o fragment lo podran usar

@@ -1,0 +1,4 @@
+una vez se pasen las imagenes al directorio drawleable en res, se deben transformar en webp, ya 
+que webp es un formato bastante optimizado para comprimir bastante bien las imagenes,
+para hacerlo solo basta seleccionar la imagen que pasastes a drawleable, click derecho y seleccionar "convert to Webp"
+aparecera un menu donde podre seleccionar si quiero perder calidad o cuanta calidad quiero mantener y por ultimo dar en "ok"

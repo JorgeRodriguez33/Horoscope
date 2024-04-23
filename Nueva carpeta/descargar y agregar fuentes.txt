@@ -1,0 +1,5 @@
+https://fonts.google.com/
+
+luego de descargar la fuente
+en res se crea un nuevo directorio llamado "font" y por ultimo basta arrastrar y dejar la fuente descargada en el directorio "font" 
+para usar esa fuente basta hacer "@font/dancing"

@@ -1,0 +1,58 @@
+siguiendo clean arquitecture, para organizar mi proyecto deberia:
+se deben representar tres capas:
+
+1)UI -(colorea/dibuja/mustra la informacion) un directorio que tenga todo lo visual de android (xml, pantallas, el ViewModel).
+     la vista/view(fragment/acrivity) solamente pinta, el ViewModel es el que pide los datosy se los da a la vista
+
+2)Domain -(analiza,trabaja con la informacion) un directorio que tenga la logica de negocio (no debe haber nada de Android en este direcotorio),
+         por ejemplo si yo estoy haciendo una aplacion en android y un amigo esta haciendo una aplicacion en ios, nuestro dominio deberia ser igual, 
+         cada uno en sus sintaxis pero la logica no debe entender si es ios o es android.
+
+3)Data -(recupera la informacion) un directorio que tendra todo lo necesario para proveer la informacion que necesitamos, es de donde v a salir la informacion, 
+         si necesito acceder a la base de datos, si necesito accder a internet, si necesito accder a un fichero, es la capa de Data la que te da la informacion.
+      
+con estos 3 directorios, bastaria para un proyecto de pequeño y medio porte
+pero... si es un proyecto grande
+*****************************************************************
+tendria estos 3 directorios por funcionalidad
+por ejemplo 
+proyecto 
+   -login
+      -ui
+      -domain
+      -data
+   -perfil
+      -ui
+      -domain
+      -data
+   -seguimientoMoviles
+      -ui
+      -domain
+      -data
+
+..... y todo asi... pero solo en caso de un proyecto muy grande
+*************************************************************************
+
+dicho esto, en la capa UI, se crea un directorio por pantalla, entonces tendria la pantalla principal como home
+-ui
+  -home
+    MainActivity.kt
+
+lo mismo pasara para las otras 2 capas de domain y data, tendran sus propios directorios
+
+*****************
+lo ideal es tener un model de dato en cada una de las capas (ui,domain,data)
+ ya que la informacion puede cambiiar entre las capas, por eso existen los mappers
+
+pero si la informacion del modelo no va a cambiar , si no se altera, no tiene anotacciones de libreria, entonces el moddelo deberia estar solamente en domain
+
+
+si doy click en algun item de uno de los fragments realcionados al navigationComponent, no tiene que llevar a un activity definido en el navigation, 
+es una activity de detalle no tiene que aparecer en el bottomNavigation
+
+
+para la navegacion del horoscopeFragment hasta el HoroscopeDetailActivity, se hace usando "safeargs" 
+para ello se agrega en build.gradle.kts lo siguiente "id ("androidx.navigation.safeargs.kotlin") version "2.7.1" apply false"
+y en app/build.gradle.kts se agrega en los plugins "id ("androidx.navigation.safeargs.kotlin")"
+
+por ultimo en el navigation/main_graph.xml se agrega la Activity "HoroscopeDetailActivity"

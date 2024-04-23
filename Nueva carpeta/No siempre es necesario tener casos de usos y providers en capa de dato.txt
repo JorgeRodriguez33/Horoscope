@@ -1,0 +1,6 @@
+si la aplicaciones muy sencilla, no es necesario tener un provdire en la capa de data si es algo que se puede hacer perfectamente en la capa de domain o ui
+y si no es necesario un viewModel no usarlo, no hacer codigo al pedo
+
+en el caso este se crea un directorio "model", en este caso porque la app es muy sencilla, pero si la app va a ser muy grande entonces podria
+haber un model por cada feature en este caso podria haber un directorio model en "detail","home","horoscope","luck","palmistry"
+este es un caso de una app muy sencillo, asi que el directorio model, estara solamente en "ui"

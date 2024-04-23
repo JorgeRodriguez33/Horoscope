@@ -1,0 +1,4 @@
+los interceptors 
+son una barrera entre el retrofit y el servidor, la idea es que cuando el retrofit hace la llamada al servidor, antes 
+de salir la llamada para el servidor, el interceptor agarra la llamada y le mete informacion extra y luego si va para el servidor
+es como un proxy entre retrofit y el servidor

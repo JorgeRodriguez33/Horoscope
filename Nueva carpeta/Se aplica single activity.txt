@@ -1,0 +1,4 @@
+basicamente es tener un solo activity y el resto de pantallas seran fragments porque es mas reutilizable
+sera un fragment por pantalla, cada pantalla estara en su propio directrorio
+
+pantalla: horosocopo, suerte y leer la mano, son tres pantallas

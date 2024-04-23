@@ -1,0 +1,6 @@
+los pedazos son las operaciones 
+test unitario
+se prueba el pedazo A, el pedazo B y el pedazo C, si los 3 andan bien, entonces seguramente todo el flojo andara bien
+
+test integracion
+se prueba toddo el flujo que compone los 3 pedazos

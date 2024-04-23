@@ -1,0 +1,5 @@
+luego de agregar las dependencias 
+1)se debe agregar el ficher application(es la primera clase que se carga), 
+por lo general se define de la forma "Nombre de la aplicacion" + App :Application(), ejemplo HoroscApp:Application()
+por ultimo de agregarla en el manifest
+
