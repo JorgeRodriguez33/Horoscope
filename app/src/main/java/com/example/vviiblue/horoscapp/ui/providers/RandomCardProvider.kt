@@ -5,6 +5,10 @@ import com.example.vviiblue.horoscapp.ui.model.LuckyModel
 import javax.inject.Inject
 import kotlin.random.Random
 
+/** Por norma general, para testear una operacion, debe estar en los mismos directorios en el directorio "test"
+ * entonces para no estar recreando todos los directorios para hacer el test de "RandomCardProvider"
+ * lo mejor es posicionar el mouse sobre  la operacion "RandomCardProvider" y precionar CTRL+SHIFT+T
+ * por ultimo dar en crear test, crear*/
 class RandomCardProvider @Inject constructor() {
     fun getLuck(): LuckyModel?{
 

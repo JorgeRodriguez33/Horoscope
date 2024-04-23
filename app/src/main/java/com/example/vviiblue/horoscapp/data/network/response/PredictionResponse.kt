@@ -4,6 +4,10 @@ import com.example.vviiblue.horoscapp.domain.model.PredictionModel
 import com.google.gson.annotations.SerializedName
 
 //@SerializedName("date") no se ofusca, entonces si se ofusca la app, entonces retrofit hara el match con lo que esta en el @SerializedName
+/** Por norma general, para testear una operacion, debe estar en los mismos directorios en el directorio "test" porque es una operacion de capa domain entonces es un test unitario
+ * entonces para no estar recreando todos los directorios para hacer el test de "PredictionResponse"
+ * lo mejor es posicionar el mouse sobre  la operacion "PredictionResponse" y precionar CTRL+SHIFT+T
+ * por ultimo dar en crear test, crear*/
 data class PredictionResponse (
     @SerializedName("date") val date: String,
     @SerializedName("horoscope") val horoscope: String,

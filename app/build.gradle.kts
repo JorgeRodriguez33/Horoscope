@@ -102,6 +102,9 @@ android {
 
 dependencies {
 
+
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     val navVersion = "2.7.1"
     val daggerHiltVersion = "2.48"
     val retrofitVersion = "2.9.0"
@@ -140,7 +143,29 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
+    /** Importante, las librerias para hacer testing se dividen en "testImplementation" y "androidTestImplementation"
+     *- Las librerias "testImplementation" son librrias que solo van a funcionario en el directorio "test"  (para pruebas unitarias que tengan que ver kotline, o operaciones de capa domain)
+     *- Las librerias "androidTestImplementation" son librerias que solo van a funcionar en el directorio "androidTest" (para pruebas que tengan que ver con android y ui en general)*/
+    //UnitTesting
     testImplementation(libs.junit)
+    testImplementation ("io.kotlintest:kotlintest-runner-junit5:3.4.2")
+    testImplementation ("io.mockk:mockk:1.12.3")
+
+    //UITesting
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.5.1")
+    androidTestImplementation ("androidx.test.espresso:espresso-intents:3.4.0")
+    androidTestImplementation ("com.google.dagger:hilt-android-testing:2.48")
+    androidTestImplementation ("androidx.fragment:fragment-testing:1.6.1")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.48")
+
+
+    /** ********************** *************** IMPORTANTE!!! ************ ************************* ***************/
+    //                      **************************************************
+    /** las librerias que tienen (libs.La libreria) por ejemplo "libs.androidx.espresso.core"
+     * estan definidas junto a su version en
+     * ---->  C:\proyectos\Android\HoroscApp\gradle\libs.versions.toml  <---------- */
+    //                      **************************************************
+    /** ********************** *************************** ************************* ***************/
 }

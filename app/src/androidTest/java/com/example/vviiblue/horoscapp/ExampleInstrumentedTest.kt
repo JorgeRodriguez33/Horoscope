@@ -13,6 +13,19 @@ import org.junit.Assert.*
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
+
+/**
+ * ESTOS TEST DE "UI" LLEVAN MAS TIEMPO, NO SON COMO LOS TEST UNITARIOS( directorio "test") QUE IMPLICAN SEGUNDOS
+ * */
+
+/**
+ *
+ * AQUI VAN LOS TEST QUE IMPLICAN COSAS DE ANDROID, POR EJEMPLO TESTEAR QUE SE HA IDO DE UNA PANTALLA HA OTRA
+ * QUE SE CORROBORE QUE LA NAVEGACION HA SIDO CORRECTA
+ * (TODO ESO IMPLICA LANZAR UN INTENT, IMPLICA CAPTURAR UN ACTIVITY)
+ *
+ * */
+
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
     @Test
